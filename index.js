@@ -13,6 +13,7 @@ const authRoute = require('./routes/auth');
 const postsRoute = require('./routes/posts');
 dotenv.config();
 
+const PORT = process.env.PORT || 8080;
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true, useUnifiedTopology: true,
@@ -49,6 +50,6 @@ app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/posts', postsRoute);
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log('Server is running on port 3000');
 });
